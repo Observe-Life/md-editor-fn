@@ -257,11 +257,11 @@ export function MarkdownDocumentEditor({
             >
                 <MdEditor
                     ref={editorRef}
+                    onCreated={(editor) => editor.previewOnly(true)}
                     id={
                         `markdown-editor-${openedDocument.documentId}`
                     }
                     preview
-                    previewOnly
                     value={content}
                     onChange={handleChange}
                     onSave={handleSave}
