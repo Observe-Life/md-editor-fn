@@ -57,6 +57,9 @@ import {
     transformInsertedImageUrl
 } from './image/image-markdown';
 import {
+    editorToolbars
+} from './editor-toolbars';
+import {
     usePreviewTable
 } from './table/use-preview-table';
 import {emojiOptions} from './emoji-options';
