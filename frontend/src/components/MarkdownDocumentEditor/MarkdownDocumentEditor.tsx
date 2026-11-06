@@ -152,6 +152,14 @@ export function MarkdownDocumentEditor({
 
     useUnsavedChanges(hasUnsavedChanges);
 
+    /*
+     * 打开文档默认进入纯预览模式（工具栏右侧眼睛）。
+     * 再点一次该按钮即可回到分栏编辑。
+     */
+    useEffect(() => {
+        editorRef.current?.togglePreviewOnly(true);
+    }, []);
+
     useEffect(() => {
         const status = hasUnsavedChanges ? ' *' : '';
 
@@ -257,7 +265,6 @@ export function MarkdownDocumentEditor({
             >
                 <MdEditor
                     ref={editorRef}
-                    onCreated={(editor) => editor.previewOnly(true)}
                     id={
                         `markdown-editor-${openedDocument.documentId}`
                     }
