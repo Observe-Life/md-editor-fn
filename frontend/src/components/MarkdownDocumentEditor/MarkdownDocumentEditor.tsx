@@ -57,9 +57,6 @@ import {
     transformInsertedImageUrl
 } from './image/image-markdown';
 import {
-    getVisibleEditorToolbars
-} from './editor-toolbars';
-import {
     usePreviewTable
 } from './table/use-preview-table';
 import {emojiOptions} from './emoji-options';
@@ -140,9 +137,6 @@ export function MarkdownDocumentEditor({
 
     const isMobileLayout =
         useMobileLayout();
-
-    const visibleEditorToolbars =
-        getVisibleEditorToolbars(isMobileLayout);
 
     const {
         handleUploadImages,
@@ -263,7 +257,7 @@ export function MarkdownDocumentEditor({
                     id={
                         `markdown-editor-${openedDocument.documentId}`
                     }
-                    preview={!isMobileLayout}
+                    preview
                     value={content}
                     onChange={handleChange}
                     onSave={handleSave}
@@ -275,7 +269,7 @@ export function MarkdownDocumentEditor({
                     theme={theme}
                     language={getEditorLanguage()}
                     readOnly={isReadOnly}
-                    toolbars={visibleEditorToolbars}
+                    toolbars={editorToolbars}
                     defToolbars={[
                         <Mark
                             key="mark"
