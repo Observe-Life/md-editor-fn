@@ -261,6 +261,7 @@ export function MarkdownDocumentEditor({
                         `markdown-editor-${openedDocument.documentId}`
                     }
                     preview
+                    previewOnly
                     value={content}
                     onChange={handleChange}
                     onSave={handleSave}

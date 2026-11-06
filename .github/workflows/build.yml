@@ -16,9 +16,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install fnpack (official fnOS packaging CLI)
+        run: |
+          curl -sSL https://static2.fnnas.com/fnpack/fnpack-1.2.3-linux-amd64 -o /usr/local/bin/fnpack
+          chmod +x /usr/local/bin/fnpack
+          fnpack --help | head -3 || true
       - run: npm ci
-      - run: npm run build:app
+      - run: npm run build:fpk
       - uses: actions/upload-artifact@v4
         with:
-          name: md-editor-fn-app
-          path: build/package
+          name: md-editor-fn-fpk
+          path: build/**/*.fpk
